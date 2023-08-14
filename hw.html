@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    
+    <!-- zadach 1 -->
+
+    <div id="root">
+        <button id="like">Лайк {{num}}</button>
+    </div>
+    <script>
+        Vue.createApp({
+            //Объект с настройками
+            data: () => {
+                return {
+                    num: 0,
+                }
+            },
+            mounted() {
+                document.querySelector("#like").onclick = () => {
+                    this.num++
+                }
+            }
+        }).mount("#root")
+    </script>
+
+    <!-- zadach 2 -->
+
+    <!-- <div id="root">
+        <button id="generait">generait</button>
+        <br>
+        <span>{{num}}</span>
+    </div>
+    <script>
+        Vue.createApp({
+            //Объект с настройками
+            data: () => {
+                return {
+                    num: 0,
+                }
+            },
+            mounted() {
+                document.querySelector("#generait").onclick = () =>{
+                    this.num = Math.floor(Math.random() * 1000);
+                }
+            }
+        }).mount("#root") 
+        </script> -->
+</body>
+
+</html>
