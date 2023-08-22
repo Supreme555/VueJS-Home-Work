@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./register.css">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="body">
+        <div class="body_1">
+            <main>
+                <div id="main_container">
+                    <div id="main_container_register">
+                        <div class="form_txt">Форма регистрации</div>
+                        <div id="but">
+                            <input type="text" id="input" placeholder="Введите имя">
+                            <button v-on:click="greet">Зарегистрироватся</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="body_2">
+            <div class="out">
+                <div id="root">
+                    <ul>
+                        <li v-for="(key,user) in users">{{user}}:{{key}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button v-on:click="out">out</button>
+    </div>
+    <script>
+        Vue.createApp({
+            data: () => {
+                return {
+                    users: [],
+                }
+            },
+            methods: {
+                greet: function (ev) {
+                    let block_1 = document.querySelector('.body_1')
+                    let block_2 = document.querySelector('.body_2')
+                    let val = document.querySelector('input').value
+                    block_1.style.display = "none"
+                    block_2.style.display = "block"
+                    this.users.push(val)
+                },
+                out: function () {
+                    let block_2 = document.querySelector('.body_2')
+                    let block_1 = document.querySelector('.body_1')
+                    block_1.style.display = "block"
+                    block_2.style.display = "none"
+                }
+            }
+        }).mount("#body");
+    </script>
+</body>
+
+
+</html>
